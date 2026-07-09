@@ -1,0 +1,67 @@
+on early-init
+    loglevel 3
+
+    mount configfs configfs /sys/kernel/config
+    #mount usbfs none /proc/bus/usb
+
+#    insmod /vendor/lib/modules/r842_fe.ko
+##    insmod /vendor/lib/modules/ldim_alg.ko
+    insmod /vendor/lib/modules/dnlp_alg.ko
+    insmod /vendor/lib/modules/mali.ko
+
+    insmod /vendor/lib/modules/optee.ko
+    insmod /vendor/lib/modules/optee_armtz.ko
+
+    insmod /vendor/lib/modules/hdr10_tmo_alg.ko
+
+/*
+ * HWID:
+ * Meridian: 1110/0111
+ * HAZEL: 0011
+ * MERIDIANC: 1001
+ *The following change is special request from factory, no need apply to other project.
+ */
+
+on early-init && property:ro.boot.hwid=1110
+    insmod /vendor/lib/modules/si2159_fe.ko
+
+on early-init && property:ro.boot.hwid=0111
+    insmod /vendor/lib/modules/si2159_fe.ko
+
+on early-init && property:ro.boot.hwid=0011
+    insmod /vendor/lib/modules/si2159_fe.ko
+
+on early-init && property:ro.boot.hwid=1001
+    insmod /vendor/lib/modules/r842_fe.ko
+
+
+on init
+
+on post-fs-data
+    insmod /vendor/lib/modules/cfg80211.ko
+    insmod /vendor/lib/sl_hdr.ko
+    insmod /vendor/lib/modules/aml_hardware_dmx.ko
+##    insmod /vendor/lib/modules/galcore.ko
+#   insmod /vendor/lib/modules/atbm7821_fe.ko
+    insmod /product/lib/dovi_tv.ko
+    mkdir /mnt/vendor/tmp
+    mount ramfs ramfs /mnt/vendor/tmp mode=1775,uid=0,gid=1000,context=u:object_r:tmpfs_tv_timeshift:s0
+
+on boot
+    #Change the DVFS default governor to performance
+    #write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/class/freq_limit/limit 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_dflt_freq 1416000
+##    chmod 666 /dev/galcore
+#HDMI IN
+    chmod 666 /sys/class/sii9233a/port
+    chmod 666 /sys/class/sii9233a/enable
+    chmod 666 /sys/module/tvin_vdin/parameters/max_buf_num
+
+    # chmod 0666 /dev/ge2d
+    chmod 666 /dev/cec
+    chmod 666 /dev/dvb0.frontend0
+    chmod 666 /dev/v4l2_frontend
+    chmod 666 /dev/vbi
+    mount debugfs debugfs /sys/kernel/debug mode=755
+
