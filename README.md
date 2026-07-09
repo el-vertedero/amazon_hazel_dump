@@ -1,0 +1,14 @@
+# hazel-user 9 PS7657.3645N 0028689972480 amz-p,release-keys
+- manufacturer: amazon
+- platform: hazel
+- codename: hazel
+- flavor: hazel-user
+- release: 9
+- id: PS7657.3645N
+- incremental: 0028689972612
+- tags: amz-p,release-keys
+- fingerprint: Amazon/hazel/hazel:9/PS7657.3645N/0028689972480:user/amz-p,release-keys
+- is_ab: false
+- brand: Amazon
+- branch: hazel-user-9-PS7657.3645N-0028689972480-amz-p,release-keys
+- repo: amazon_hazel_dump
