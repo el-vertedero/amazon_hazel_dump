@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--
+   Copyright (c) 2020 - 2022 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+--><permissions>
+    <!-- By declaring the feature here
+         The api PackageManager.hasSystemFeature(String feature) will
+         return true if passed the feature name below.-->
+    <feature name="com.amazon.usb.debug"/>
+    <feature name="amazon.hardware.ultra_hd"/>
+    <feature name="amazon.hardware.usb_storage"/>
+    <feature name="amazon.hardware.optical_audio"/>
+    <feature name="amazon.hardware.headphone_audio"/>
+    <feature name="amazon.hardware.ethernet"/>
+    <feature name="amazon.hardware.adaptable_storage"/>
+    <feature name="amazon.hardware.external_storage"/>
+    <feature name="com.amazon.ffs.enabled"/>
+    <feature name="com.amazon.ugs.enabled"/>
+    <feature name="android.software.picture_in_picture"/>
+    <feature name="com.amazon.feature.security.camera.pip.enabled"/>
+
+    <!-- Feature to indicate the starboard is not enabled on the device -->
+<feature name="amazon.hardware.color_depth_adjustment"/>
+  <feature name="com.amazon.hardware.hdmi_low_latency.supported"/>
+  <feature name="com.amazon.software.nonmember_mode"/>
+  <feature name="amazon.software.screen_mirroring"/>
+  <feature name="com.amazon.broadcast_time_sync.enabled"/>
+  <feature name="com.amazon.store_mode_v2"/>
+</permissions>

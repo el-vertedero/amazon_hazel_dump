@@ -1,0 +1,9 @@
+
+ro.product.build.date=Sun Sep 17 14:51:30 UTC 2023
+ro.product.build.date.utc=1694962290
+ro.product.build.fingerprint=Amazon/hazel/hazel:9/PS7657.3645N/0028689972480:user/dev-keys
+#
+# ADDITIONAL PRODUCT PROPERTIES
+#
+ro.fireos.media.batch.size=50
+launcher.focusAnimationEnable=false
